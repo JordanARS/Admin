@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from "react";
-import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
+import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine, RiCalendarEventLine } from "react-icons/ri";
 import ModalNotifi from "./ModalNotifi";
 import ModalAddContent from "./ModalAddContent";
 import {Link} from 'react-router-dom'
@@ -23,7 +23,7 @@ export default function Dashboard () {
       <div className={`fixed border-e border-gray-600 lg:static w-[60%] md:w-[40%] lg:w-full top-0 z-50 transition-all ${sidebar ? "-left-0":"-left-full"} h-full w-full  bg-[#0F1523] col-span-1 p-4`}>
           {/* Logo */}
         <div className='text-center p-6'>
-          <h1 className='font-bold tracking-[4px] text-2xl font-serif text-white'>Start Alarm</h1>
+          <h1 className='font-bold tracking-[4px] text-2xl font-serif text-white'>Admin</h1>
           
         </div>
         <div className='flex flex-col justify-between h-[600px]'>
@@ -35,7 +35,7 @@ export default function Dashboard () {
               <li>
                 <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiDashboardLine />
-                  Dashboard
+                  Contenido
                 </a>
               </li>
               <li>
@@ -43,11 +43,11 @@ export default function Dashboard () {
                   <RiUser6Line />
                   Perfil
                 </a>
-              </li>
+              </li>              
               <li>
                 <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
-                  <RiChatHistoryLine />
-                  Historial
+                  <RiCalendarEventLine />
+                  Eventos
                 </a>
               </li>
               <li>
@@ -118,78 +118,35 @@ export default function Dashboard () {
             
           {/* Resultados y Fechas */}
           <div className="flex items-center justify-between">
-            <p className="p-4 text-gray-300">Se han encontrado <span className="text-indigo-500 font-bold">3</span> resultados
+            <p className="p-4 text-gray-300">Se han encontrado <span className="text-indigo-500 font-bold">0</span> resultados
             </p>
             <p className="flex items-center gap-2 p-4 text-gray-300 hover:cursor-pointer">
-              Ordenar por <span className="text-indigo-500 font-bold"> Fecha</span>
+              Ordenar por <span className="text-indigo-500 font-bold"> A-Z</span>
               <RiArrowDownSLine/>
             </p>
           </div>
             
-          {/* CAJA de Informacion de Fechas */}
-            <div href="/historial" className="flex flex-col hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
+          {/* CAJA de Informacion de Estudiantes */}
+            <div href="/historial" className="w-full flex flex-col justify-center h-[400px] hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
               {/* Titulo y texto */}
-              <div className="w-full md:w-[80%]">
-                <h1 className="text-2xl text-white font-semibold font-serif mb-4">Titulo</h1>            
-                <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input>
+              <div className="w-full h-[50px] flex items-start justify-between border-b">                
+              <div className="w-full flex justify-center">
+                <h2 className="text-2xl text-gray-300 font-serif">Usuario</h2>                           
               </div>
-              {/* Fechas a la derecha */}
-              <div className="w-full md:w-[20%] flex flex-col items-end">
-                <h2 className="text-2xl text-gray-300 mb-4 ">17/04/2023</h2>
-                <p className="text-gray-200">Hace 2 días</p>
+              <div className="w-full flex justify-center">
+                <h2 className=" text-2xl text-gray-300 font-serif">Nombre completo</h2>
               </div>
-            </div>
+              <div className="w-full flex justify-center">
+                <h2 className="text-2xl text-gray-300 font-serif">Correo Institucional</h2>
+              </div>
+              <div className="w-full flex justify-center">
+                <h2 className="text-2xl text-gray-300 font-serif">Cargo</h2>
+              </div>
+              <div className="w-full flex justify-center">
+                <h2 className="text-2xl text-gray-300 font-serif">Horas de Bienestar</h2>
+              </div>
+              </div>
 
-            <div href="/historial" className="flex flex-col hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
-              {/* Titulo y texto */}
-              <div className="w-full md:w-[80%]">
-                <h1 className="text-2xl text-white font-semibold font-serif mb-4">Titulo</h1>            
-                <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input>
-              </div>
-              {/* Fechas a la derecha */}
-              <div className="w-full md:w-[20%] flex flex-col items-end">
-                <h2 className="text-2xl text-gray-300 mb-4 ">17/04/2023</h2>
-                <p className="text-gray-200">Hace 2 días</p>
-              </div>
-            </div>
-
-            <div href="/historial" className="flex flex-col hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
-              {/* Titulo y texto */}
-              <div className="w-full md:w-[80%]">
-                <h1 className="text-2xl text-white font-semibold font-serif mb-4">Titulo</h1>            
-                <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input>
-              </div>
-              {/* Fechas a la derecha */}
-              <div className="w-full md:w-[20%] flex flex-col items-end">
-                <h2 className="text-2xl text-gray-300 mb-4 ">17/04/2023</h2>
-                <p className="text-gray-200">Hace 2 días</p>
-              </div>
-            </div>
-            
-            <div href="/historial" className="flex flex-col hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
-              {/* Titulo y texto */}
-              <div className="w-full md:w-[80%]">
-                <h1 className="text-2xl text-white font-semibold font-serif mb-4">Titulo</h1>            
-                <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input>
-              </div>
-              {/* Fechas a la derecha */}
-              <div className="w-full md:w-[20%] flex flex-col items-end">
-                <h2 className="text-2xl text-gray-300 mb-4 ">17/04/2023</h2>
-                <p className="text-gray-200">Hace 2 días</p>
-              </div>
-            </div>
-
-            <div href="/historial" className="flex flex-col hover:shadow-slate-700 md:flex-row border-2 border-transparent hover:border-gray-600 bg-[#1F2937] mb-5 pl-4 rounded-3xl p-4 shadow-lg transition-all">
-              {/* Titulo y texto */}
-              <div className="w-full md:w-[80%]">
-                <h1 className="text-2xl text-white font-semibold font-serif mb-4">Titulo</h1>            
-                <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input>
-              </div>
-              {/* Fechas a la derecha */}
-              <div className="w-full md:w-[20%] flex flex-col items-end">
-                <h2 className="text-2xl text-gray-300 mb-4 ">17/04/2023</h2>
-                <p className="text-gray-200">Hace 2 días</p>
-              </div>
             </div>
         </div>
       </div>
@@ -219,6 +176,7 @@ export default function Dashboard () {
             </button>
           </div>
         </header>
+        {/* <input className="bg-[#1F2937] text-white border-b p-4 w-[80%] rounded-lg outline-none mb-2" placeholder="Ingresa la información necesaria"></input> */}
       </ModalAddContent>
       </Fragment>
   )
